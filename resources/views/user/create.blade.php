@@ -56,7 +56,7 @@
                 <div class="col-md-6">
                     <label for="role" class="form-label required">Role</label>
 
-                    <select class="form-select" name="role" required>
+                    <select class="form-select  select2-default" name="role" required>
                         <option value>Pilih Role</option>
                         <option value="Superadmin" @selected(old('role') == 'Superadmin')>
                             Superadmin
