@@ -10,4 +10,5 @@
 
     @push('scripts')
     @endpush
+
 </x-app>

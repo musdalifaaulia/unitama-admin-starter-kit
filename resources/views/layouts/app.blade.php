@@ -158,6 +158,12 @@
             <li class="nav-heading">Pages</li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('dashboard.index') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('user.index') }}">
                     <i class="bx bx-user-pin"></i>
                     <span>User</span>
@@ -228,10 +234,7 @@
     <script src="{{ asset('niceadmin/js/main.js') }}"></script>
 
     <script>
-        new DataTable('#data-table', {
-            pageLength: 5,
-            lengthMenu: [5, 10, 25, 50, 100]
-        });
+        new DataTable('#data-table');
 
         $('.form').parsley({
             errorClass: 'is-invalid text-red',
