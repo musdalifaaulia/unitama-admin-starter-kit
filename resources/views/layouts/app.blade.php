@@ -1,79 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{{ $title }}</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-    <meta content="" name="author">
+<title>{{ $setting->app_name }} | {{ $title }}</title>
+<meta content="{{ $setting->description }}" name="description">
+<meta content="{{ $setting->keywords }}" name="keywords">
+<meta content="Musdalifa Aulia Pratiwi" name="author">
 
 
-    <!-- Favicons -->
-    <link href="{{ asset('niceadmin/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('niceadmin/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+<!-- Favicons -->
+<link href="{{ $setting->logo ? asset('storage/' . $setting->logo) : asset('niceadmin/img/logo.png') }}" rel="icon">
+<link href="{{ $setting->logo ? asset('storage/' . $setting->logo) : asset('niceadmin/img/logo.png') }}"
+    rel="apple-touch-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="{{ asset('niceadmin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('niceadmin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('niceadmin/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('niceadmin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<!-- Vendor CSS Files -->
+<link href="{{ asset('niceadmin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('niceadmin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ asset('niceadmin/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+<link href="{{ asset('niceadmin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
 
-    <!-- add on -->
-    <link rel="stylesheet" href="{{ asset('niceadmin/vendor/dataTables/css/dataTables.bootstrap5.css') }}">
-    <link href="{{ asset('niceadmin/vendor/select2/css/select2.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('niceadmin/vendor/select2/css/select2-bootstrap-5-theme.min.css') }}" rel="stylesheet" />
+<!-- add on -->
+<link rel="stylesheet" href="{{ asset('niceadmin/vendor/dataTables/css/dataTables.bootstrap5.css') }}">
+<link href="{{ asset('niceadmin/vendor/select2/css/select2.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('niceadmin/vendor/select2/css/select2-bootstrap-5-theme.min.css') }}" rel="stylesheet" />
 
-    <!-- Template Main CSS File -->
-    <link href="{{ asset('niceadmin/css/style.css') }}" rel="stylesheet">
+<!-- Template Main CSS File -->
+<link href="{{ asset('niceadmin/css/style.css') }}" rel="stylesheet">
 
-    <style>
-        label.required::after {
-            content: " *";
-            color: red;
-            font-weight: bold;
-        }
+<style>
+    label.required::after {
+        content: " *";
+        color: red;
+        font-weight: bold;
+    }
 
-        table.dataTable thead th {
-            background-color: #0d6efd !important;
-            color: white !important;
-            text-align: center !important;
-        }
+    table.dataTable thead th {
+        background-color: #0d6efd !important;
+        color: white !important;
+        text-align: center !important;
+    }
 
-        #data-table td {
-            text-align: center;
-            vertical-align: middle;
-        }
+    #data-table td {
+        text-align: center;
+        vertical-align: middle;
+    }
 
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
 
-        #main {
-            flex: 1;
-        }
+    #main {
+        flex: 1;
+    }
 
-        .footer {
-            text-align: center !important;
-            padding: 15px 0;
-            background: #fff;
-        }
-    </style>
+    .footer {
+        text-align: center !important;
+        padding: 15px 0;
+        background: #fff;
+    }
+</style>
 
-    <!-- =======================================================
+
+<!-- =======================================================
   * Template Name: NiceAdmin
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
   * Updated: Apr 20 2024 with Bootstrap v5.3.3
@@ -89,8 +90,9 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route('dashboard.index') }}" class="logo d-flex align-items-center">
-                <img src="{{ asset('niceadmin/img/logo.png') }}" alt="">
-                <span class="d-none d-lg-block">NiceAdmin</span>
+                <img src="{{ $setting->logo ? asset('storage/' . $setting->logo) : asset('niceadmin/img/logo.png') }}"
+                    alt="">
+                <span class="d-none d-lg-block">{{ $setting->app_name }}</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -164,6 +166,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('setting.index') }}">
+                    <i class="bx bx-cog"></i>
+                    <span>Setting</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('user.index') }}">
                     <i class="bx bx-user-pin"></i>
                     <span>User</span>
@@ -200,15 +208,14 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
+            &copy; {{ $setting->copyright }}
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
     </footer>
     <!-- End Footer -->
 
